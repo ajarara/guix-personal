@@ -1,8 +1,10 @@
-(use-modules (gnu)
-             (guix transformations)
-             (guix packages))
+(define-module (personal)
+  #:use-module (gnu)
+  #:use-module (guix transformations)
+  #:use-module (guix packages))
 
-(letrec ((libssh-as-git-transformer
+(define-public guix-with-sk-support
+  (letrec ((libssh-as-git-transformer
           (options->transformation
            '((with-git-url . "libssh=https://git.libssh.org/projects/libssh.git"))))
          (libssh-with-commit-transformer
@@ -17,4 +19,4 @@
            libssh-with-commit-transformer
            libssh-as-git-transformer)))
   (libssh-with-sk-support-transformer
-   (specification->package "guix")))
+   (specification->package "guix"))))
