@@ -1,0 +1,27 @@
+From 29c490b4ba86ab99d6bcf306eeb4ec1e83e3f5b0 Mon Sep 17 00:00:00 2001
+From: Ahmad Jarara <git@ajarara.io>
+Date: Sat, 6 Nov 2021 21:48:22 -0400
+Subject: [PATCH] Add sk-ssh-ed25519 to PUBLIC_KEY_ALGORITHMS
+
+* src/kex.c: Add sk-ssh-ed25519@openssh.com to public key algos
+---
+ src/kex.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/kex.c b/src/kex.c
+index 80b6e8ad..bc6b9915 100644
+--- a/src/kex.c
++++ b/src/kex.c
+@@ -132,6 +132,7 @@
+                  "ssh-rsa" \
+                  DSA_HOSTKEYS
+ #define PUBLIC_KEY_ALGORITHMS "ssh-ed25519-cert-v01@openssh.com," \
++                              "sk-ssh-ed25519@openssh.com," \
+                               EC_PUBLIC_KEY_ALGORITHMS \
+                               "rsa-sha2-512-cert-v01@openssh.com," \
+                               "rsa-sha2-256-cert-v01@openssh.com," \
+
+base-commit: 04ae110c612f0dabc03882a52bf5be56be560020
+-- 
+2.33.1
+
